@@ -20,10 +20,6 @@ public class CourseController {
         return courseService.availableCourses();
     }
 
-    @GetMapping("courses/enrolled")
-    public List<CourseRegistry> enrolledStudents(){
-        return courseService.enrolledStudents();
-    }
 
     @PostMapping("/courses/register")
     public String enrollCourse(@RequestParam("name") String name,
@@ -32,5 +28,10 @@ public class CourseController {
         courseService.enrollCourse(name,emailId,courseName);
         return "Congratulations! "+name+" Enrollment Successful for "+courseName;
 
+    }
+
+    @GetMapping("/")
+    public String home(){
+        return "Home Page";
     }
 }
